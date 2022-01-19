@@ -1,0 +1,313 @@
+@use 'placeholders';
+
+header {
+    .section_desktop {
+        display: none;
+    }
+
+    button {
+        margin: 0;
+        padding: 0;
+
+        img {
+            margin: 0;
+            padding: 0;
+            width: 20px;
+        }
+        
+        .mobile_banniere_fleche_gauche {
+            transform: rotate(180deg);
+        }
+
+        .mobile_banniere_fleche_gauche, .mobile_banniere_fleche_droite {
+            padding: 15px
+        }
+
+        .mobile_banniere_bouton_close {
+            padding: 18px;
+        }
+    }
+
+    .section_mobile {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: repeat(12, 1fr);
+
+        .mobile_banniere {
+            grid-column: 1/13;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    margin-left: 20px;
+                }
+
+                @extend %liens-ancres-fond-blanc;
+            }
+        }
+
+        .mobile_menu {
+            grid-column: 1/13;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(7, 0, 73);
+            min-height: 52px;
+
+            .mobile_menu_bouton_fermer {
+                align-self: flex-start;
+                display: none;
+                filter: invert(100%);
+                padding: 10px;
+            }
+
+            .mobile_menu_gauche_navigation {
+                display: flex;
+                flex-flow: column;
+            }
+
+            .mobile_menu_gauche {
+                margin-left: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .mobile_menu_bouton_hamburger {
+                    filter: invert(100%);
+                }
+
+                a {
+                    margin-left: 20px;
+                    img {
+                        margin: 0;
+                        padding: 0;
+                        width: 40px;
+                    }
+                }
+            }
+
+            .mobile_menu_droite {
+                margin-right: 20px;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                a {
+                    width: 18px;
+
+                    img {
+                        margin: 0;
+                        padding: 0;
+                        max-width: 18px;
+                        filter: invert(100%);
+                    }
+                }
+
+                a:first-child, a:nth-child(2), a:nth-child(3) {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .mobile_menu_gauche_navigation_liens {
+            display: none;
+            background-color: rgb(7, 0, 73);
+            grid-column: 1/13;
+            padding: 0 0 10px 25px;
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    @extend %liens-ancres-fond-fonce;
+                    padding: 5px 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 921px) {
+
+        .section_mobile {
+            display: none;
+        }
+
+        .section_desktop {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto auto;
+
+            .desktop-banniere {
+                justify-self: center;
+                width: 95%;
+                grid-column: 1/13;
+                grid-row: 1/2;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1600px;
+
+                .zoneJeuMobile {
+                    padding: 10px;
+                    background-color: blue;
+                    color: white;
+                    border-radius: 5px;
+                }
+
+                .zoneJeuMobile:hover, .zoneJeuMobile:focus {
+                    padding: 11px;
+                    background-color: rgb(0, 0, 165);
+                    color: white;
+                    border-radius: 5px;
+                }
+
+                .zoneJeuMobile:active {
+                    padding: 10px;
+                    background-color: rgb(0, 217, 255);
+                    color: rgb(0, 0, 0);
+                    border-radius: 5px;
+                }
+
+                .desktop-banniere-contenu-deroulant {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .desktop-banniere-fleche-gauche {
+                        transform: rotate(180deg);
+                    }
+
+                    .desktop-banniere-contenu-deroulant-texte {
+                        display: flex;
+                        align-items: center;
+                        padding: 0 50px;
+
+                        a {
+                            margin-left: 10px;
+                            color: rgb(40, 0, 216);
+                        }
+                    
+                        a:hover, a:focus {
+                            color: rgb(200, 0, 0);
+                            text-decoration: underline;
+                        }
+                    
+                        a:active {
+                            color: rgb(0, 247, 255);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .desktop-banniere-droite {
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        color: rgb(40, 0, 216);
+
+                        img {
+                            width: 30px;
+                            margin-right: 10px;
+                        }
+                    }
+                
+                    a:hover, a:focus {
+                        color: rgb(200, 0, 0);
+                        text-decoration: underline;
+                    }
+                
+                    a:active {
+                        color: rgb(0, 247, 255);
+                        text-decoration: underline;
+                    }
+
+                    .desktop-banniere-droite-separateur {
+                        margin: 0 20px;
+                    }
+                }
+            }
+
+            .desktop-menu {
+                background-color: rgb(7, 0, 73);
+                grid-column: 1/13;
+                grid-row: 2/3;
+                display: flex;
+                justify-content: center;
+
+                .desktop-menu_contenu {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 30px;
+                    height: 75px;
+                    width: 100%;
+                    max-width: 1600px;
+
+                    .desktop-menu-gauche {
+                        display: flex;
+                        align-items: center;
+
+                        .desktop-menu-logo {
+                            width: 55px;
+                        }
+
+                        nav {
+                            padding-left: 10px;
+                            ul {
+                                list-style-type: none;
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+
+                                li {
+                                    padding: 0 5px;
+
+                                    a {
+                                        color: rgb(255, 255, 255);
+                                    }
+                                
+                                    a:hover, a:focus {
+                                        color: rgb(84, 255, 241);
+                                        text-decoration: underline;
+                                    }
+                                
+                                    a:active {
+                                        color: rgb(255, 54, 54);
+                                    } 
+                                }
+                            }
+                        }
+                    }
+
+                    .desktop-menu-icone {
+
+                        a {
+                            margin-right: 20px;
+    
+                            img {
+                                width: 30px;
+                                filter: invert(100%);
+                            }
+                        }
+    
+                        a:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
